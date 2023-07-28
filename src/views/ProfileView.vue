@@ -20,31 +20,22 @@ import {defineComponent} from 'vue'
 import {mapActions, mapGetters} from 'vuex'
 
 export default defineComponent({
-    name: 'ProfieView',
-    // created: function(){
-    //     console.log('viewme',this.user)
-    //     return this.$store.dispatch('viewMe'), console.log('got viewMe')
-    // },
+    name: 'ProfielView',
+    created: function(){
+        // this is for see the user data after refresh the page
+        if (this.isLoggedIn){
+            console.log('viewme',this.user)
+            return this.$store.dispatch('viewMe'), console.log('got viewMe')
+        }
+    },
     computed: {
         ...mapGetters({user:'stateUser'}),
-        userComputed() {
-            console.log('mapgetter: ',this.user); // Logging the value of the user getter
-            return this.user;
-        },
-        // noLoggedRedirect (){
-        //     if (!this.user){
-        //         return this.$router.push('/')
-        //     }
-        // },
         isLoggedIn: function (){
             const isAuthenticated = this.$store.getters.isAuthenticated
             console.log('authenticated user: ', isAuthenticated)
             return isAuthenticated
             // return this.$store.getters.isAuthenticated
         },
-        user : function (){
-            return this.$store.getters.stateUser
-        }
     },
     methods:{
         ...mapActions(['deleteUser']),
@@ -61,13 +52,12 @@ export default defineComponent({
                 this.$router.push('/')
             }
         },
+        
     },
     beforeRouteEnter(to,from, next){
         next (vm => {
             vm.noLoggedRedirect()
         })
-    }
+    },
 })
 </script>
-
-// we have a error after delete the user

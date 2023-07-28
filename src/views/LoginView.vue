@@ -42,7 +42,7 @@ export default defineComponent({
         User.append('username', this.form.username)
         User.append('password', this.form.password)
         await this.logIn(User)
-        // this.$router.push('/dashboard')
+        this.$router.push('/dashboard')
        
         // Convert FormData object to an array of key-value pairs
         const userEntries = [...User.entries()];

@@ -32,7 +32,7 @@ const routes = [
   },
   {
     path: "/profile",
-    name: "Profile",
+    name: "ProfileView",
     component: ProfileView,
     metha: {requiresAuth: true},
   },
@@ -57,6 +57,7 @@ const router = createRouter({
   routes,
 });
 
+// this is to prevent that after get 'logout' we can access again without permision writing the url. To prevent the user from accessing routes that require authentication like 'profile' or 'dashboard' 
 router.beforeEach((to, _, next) => {
   if (to.matched.some((record) => record.meta.requiresAuth)) {
     if (store.getters.isAuthenticated) {

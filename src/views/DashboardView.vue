@@ -4,7 +4,7 @@
             <h1>Add new note</h1>
             <hr/><br/>
 
-            <form @submit.prevent="submit">
+            <form ref="noteForm" @submit.prevent="submit">
                 <div class="mb-3">
                     <label for="title" class="form-label">Title:</label>
                     <input type="text" name="title" v-model="form.title" class="form-control" />
@@ -73,6 +73,8 @@ export default defineComponent({
         ...mapActions(['createNote']),
         async submit(){
             await this.createNote(this.form)
+            this.$refs.noteForm.reset()
+            this.$router.push("/dashboard")
         }
     }
 })
