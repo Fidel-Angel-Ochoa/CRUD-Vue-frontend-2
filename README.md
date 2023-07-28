@@ -1,4 +1,4 @@
-# frontend
+# frontend for the CRUD 2(fastapi-postgresql)
 
 ## Project setup
 ```
