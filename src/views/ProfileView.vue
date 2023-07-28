@@ -24,17 +24,13 @@ export default defineComponent({
     created: function(){
         // this is for see the user data after refresh the page
         if (this.isLoggedIn){
-            console.log('viewme',this.user)
-            return this.$store.dispatch('viewMe'), console.log('got viewMe')
+            return this.$store.dispatch('viewMe')
         }
     },
     computed: {
         ...mapGetters({user:'stateUser'}),
         isLoggedIn: function (){
-            const isAuthenticated = this.$store.getters.isAuthenticated
-            console.log('authenticated user: ', isAuthenticated)
-            return isAuthenticated
-            // return this.$store.getters.isAuthenticated
+            return this.$store.getters.isAuthenticated
         },
     },
     methods:{
@@ -48,7 +44,6 @@ export default defineComponent({
         },
         noLoggedRedirect (){
             if (!this.isLoggedIn){
-                console.log('redirect')
                 this.$router.push('/')
             }
         },

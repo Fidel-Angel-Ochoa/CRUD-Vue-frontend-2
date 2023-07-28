@@ -39,7 +39,6 @@ const actions = {
 const mutations = {
   setNotes(state, notes) {
     state.notes = notes;
-    console.log("mutt:", state.notes);
   },
   setNote(state, note) {
     state.note = note;

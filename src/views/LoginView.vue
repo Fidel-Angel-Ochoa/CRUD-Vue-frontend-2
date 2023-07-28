@@ -43,11 +43,6 @@ export default defineComponent({
         User.append('password', this.form.password)
         await this.logIn(User)
         this.$router.push('/dashboard')
-       
-        // Convert FormData object to an array of key-value pairs
-        const userEntries = [...User.entries()];
-        // Convert the array to a string and log it to the console
-        console.log('User in the form:', JSON.stringify(userEntries))
     }else{
         console.log('Please fill both password and username')
     }}

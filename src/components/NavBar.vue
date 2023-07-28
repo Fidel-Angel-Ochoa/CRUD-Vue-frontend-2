@@ -40,28 +40,12 @@
 
 <script>
 import { defineComponent } from 'vue';
-// import {mapActions} from 'vuex'
 
 export default defineComponent({
     name: 'NavBar',
     computed: {
-        // ...mapActions(['viewMe']),
-        // isLoggedIn: function(){
-        //     return this.$store.getters.isAuthenticated;
-        // }
-        // async isLoggedIn(){
-        //     // eslint-disable-next-line 
-        //     await this.viewMe();
-        //     const isAuthenticated = this.$store.getters.isAuthenticated;
-        //     console.log('isLoggedIn', isAuthenticated)
-        //     return isAuthenticated
-        // },
         isLoggedIn: function() {
-            const isAuthenticated = this.$store.getters.isAuthenticated;
-            const user = this.$store.state.user;
-            console.log('isLoggedIn:', isAuthenticated);
-            console.log('user in navbar: ', user)
-            return isAuthenticated;
+            return this.$store.getters.isAuthenticated;
         }
     },
     methods:{
