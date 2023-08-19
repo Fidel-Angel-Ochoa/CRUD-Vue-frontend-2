@@ -22,6 +22,9 @@
     async created() {
       try {
         await this.viewNote(this.id);
+        if (this.isLoggedIn){
+            return this.$store.dispatch('viewMe')
+        }
       } catch (error) {
         console.error(error);
         this.$router.push('/dashboard');
@@ -29,6 +32,9 @@
     },
     computed: {
       ...mapGetters({ note: 'stateNote', user: 'stateUser'}),
+      isLoggedIn: function (){
+            return this.$store.getters.isAuthenticated
+        },
     },
     methods: {
       ...mapActions(['viewNote', 'deleteNote']),
