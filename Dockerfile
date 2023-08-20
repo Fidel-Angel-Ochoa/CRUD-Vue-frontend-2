@@ -10,7 +10,7 @@ COPY package.json .
 COPY package-lock.json .
 RUN npm ci
 
-COPY . . 
+# COPY . . 
 
 EXPOSE 8080
 
