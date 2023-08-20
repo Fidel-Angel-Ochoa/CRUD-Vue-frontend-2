@@ -10,7 +10,7 @@ import store from "./store";
 const app = createApp(App);
 
 axios.defaults.withCredentials = true;
-axios.defaults.baseURL = "http://localhost:5000/"; // the FastAPI backend
+axios.defaults.baseURL = "https://crud-backend-vue-fastapi-postgres.onrender.com/"; // the FastAPI backend
 
 app.config.errorHandler = (err, instance, info) => {
   console.error("Global error: ", err);
