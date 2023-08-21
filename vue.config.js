@@ -4,7 +4,7 @@ module.exports = defineConfig({
   configureWebpack: {
     entry: "./src/main.js",
   },
-  // devServer: {
-  //   port: 3000, // Set the desired port number
-  // },
+  devServer: {
+    port: 10000, // Set the desired port number
+  },
 });
