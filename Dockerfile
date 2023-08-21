@@ -3,6 +3,7 @@ FROM node:lts-alpine
 WORKDIR /app
 
 ENV PATH /app/node_modules/.bin:$PATH
+ENV PORT=80
 
 RUN npm install @vue/cli@5.0.8 -g
 
@@ -12,6 +13,6 @@ RUN npm install
 
 COPY . /app 
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD ["npm", "run", "serve"]
