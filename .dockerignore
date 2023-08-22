@@ -2,3 +2,5 @@ Dockerfile
 .dockerignore
 node_modules
 .vscode
+package-lock-1.json
+package-1.json

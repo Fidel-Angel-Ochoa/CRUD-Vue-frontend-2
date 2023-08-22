@@ -4,7 +4,10 @@ module.exports = defineConfig({
   configureWebpack: {
     entry: "./src/main.js",
   },
+  publicPath:
+    process.env.NODE_ENV === "production" ? "/CRUD-Vue-frontend-2/" : "/",
   devServer: {
+    historyApiFallback: true,
     port: 10000, // Set the desired port number
   },
 });
